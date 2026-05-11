@@ -1763,9 +1763,10 @@
   .ach-left { grid-column: span 7; min-height: 400px; }
   .ach-right { grid-column: span 5; display: flex; flex-direction: column; gap: 16px; }
 
-  .ben-tall { grid-column: span 3; min-height: 500px; }
-  .ben-mid-col { grid-column: span 3; display: flex; flex-direction: column; gap: 16px; }
-  .ben-right-col { grid-column: span 6; display: flex; flex-direction: column; gap: 16px; }
+  .ben-grid { grid-template-rows: 1fr 1fr; }
+  .ben-tall { grid-column: span 3; grid-row: span 2; }
+  .ben-card-mid { grid-column: span 3; }
+  .ben-card-right { grid-column: span 6; }
 
   /* ─── ACHIEVEMENTS ─── */
   .achievements { background: #000; padding: 100px 6% 20px 6%; position: relative; overflow: hidden; }
@@ -1856,7 +1857,7 @@
   .ben-pink { color: #ff0077; }
   .ben-label { font-size: 0.75rem; font-weight: 700; color: #888; letter-spacing: 1px; margin-top: 10px; }
   
-  .ben-wide-card { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 40px; height: calc(50% - 8px); }
+  .ben-wide-card { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 40px; }
   .ben-badge { padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 16px; display: inline-block; }
   
   .ben-purple-badge { background: rgba(160,32,240,0.1); color: #c084fc; }
@@ -1867,14 +1868,16 @@
   .ben-card-stat-lbl { font-size: 0.8rem; font-weight: 700; color: #888; }
 
   @media (max-width: 1100px) {
-    .ach-grid, .ben-grid { grid-template-columns: 1fr; }
-    .ach-left, .ach-right, .ben-tall, .ben-mid-col, .ben-right-col { grid-column: span 1; }
+    .ach-grid, .ben-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+    .ach-left, .ach-right, .ben-tall, .ben-card-mid, .ben-card-right { grid-column: span 1; grid-row: auto; }
     .ben-wide-card { flex-direction: row; }
   }
   @media (max-width: 768px) {
     .ben-wide-card { flex-direction: column; align-items: flex-start; gap: 20px; }
     .ben-card-stat-right { text-align: left; }
   }
+
+</style>
 
 </style>
 
@@ -2271,43 +2274,43 @@
           </div>
         </div>
 
-        <!-- Middle Column -->
-        <div class="ben-mid-col">
-          <div class="ben-card reveal" style="text-align: center; justify-content: center; align-items: center;">
-            <div style="color: #00ff88; font-size: 2.2rem; margin-bottom: 15px;">📈</div>
-            <div class="ben-small-stat ben-green">-50%</div>
-            <div class="ben-label">CHI PHÍ API</div>
+        <!-- Middle column items -->
+        <div class="ben-card ben-card-mid reveal" style="text-align: center; justify-content: center; align-items: center;">
+          <div style="color: #00ff88; font-size: 2.2rem; margin-bottom: 15px;">📈</div>
+          <div class="ben-small-stat ben-green">-50%</div>
+          <div class="ben-label">CHI PHÍ API</div>
+        </div>
+        
+        <!-- Right column item 1 -->
+        <div class="ben-card ben-wide-card ben-card-right reveal">
+          <div style="max-width: 350px;">
+            <span class="ben-badge ben-purple-badge">REELS / SHORTS</span>
+            <h3 class="ach-title" style="font-size: 1.8rem; margin-bottom: 12px;">Xây Thương Hiệu Cá Nhân</h3>
+            <p class="ach-text" style="font-size: 0.95rem; margin-bottom: 0;">Phủ sóng đa nền tảng với định dạng dọc. Tự động hóa 100% khâu hậu kỳ.</p>
           </div>
-          <div class="ben-card reveal" style="text-align: center; justify-content: center; align-items: center;">
-            <div style="color: #ff0077; font-size: 2.2rem; margin-bottom: 15px;">📚</div>
-            <div class="ben-small-stat ben-pink">3 in 1</div>
-            <div class="ben-label">ĐA NỀN TẢNG</div>
+          <div class="ben-card-stat-right">
+            <div class="ben-card-stat-val" style="color: #c084fc;">900K+</div>
+            <div class="ben-card-stat-lbl">VIEWS</div>
           </div>
         </div>
 
-        <!-- Right Column -->
-        <div class="ben-right-col">
-          <div class="ben-card ben-wide-card reveal">
-            <div style="max-width: 350px;">
-              <span class="ben-badge ben-purple-badge">REELS / SHORTS</span>
-              <h3 class="ach-title" style="font-size: 1.8rem; margin-bottom: 12px;">Xây Thương Hiệu Cá Nhân</h3>
-              <p class="ach-text" style="font-size: 0.95rem; margin-bottom: 0;">Phủ sóng đa nền tảng với định dạng dọc. Tự động hóa 100% khâu hậu kỳ.</p>
-            </div>
-            <div class="ben-card-stat-right">
-              <div class="ben-card-stat-val" style="color: #c084fc;">900K+</div>
-              <div class="ben-card-stat-lbl">VIEWS</div>
-            </div>
+        <!-- Middle column item 2 -->
+        <div class="ben-card ben-card-mid reveal" style="text-align: center; justify-content: center; align-items: center;">
+          <div style="color: #ff0077; font-size: 2.2rem; margin-bottom: 15px;">📚</div>
+          <div class="ben-small-stat ben-pink">3 in 1</div>
+          <div class="ben-label">ĐA NỀN TẢNG</div>
+        </div>
+
+        <!-- Right column item 2 -->
+        <div class="ben-card ben-wide-card ben-card-right reveal">
+          <div style="max-width: 350px;">
+            <span class="ben-badge ben-orange-badge">📰 KÊNH TIN TỨC</span>
+            <h3 class="ach-title" style="font-size: 1.8rem; margin-bottom: 12px;">Tin Tức Tự Động</h3>
+            <p class="ach-text" style="font-size: 0.95rem; margin-bottom: 0;">Sản xuất 10 video/ngày hoàn toàn tự động. Đạt 500K views chỉ sau 1 tuần.</p>
           </div>
-          <div class="ben-card ben-wide-card reveal">
-            <div style="max-width: 350px;">
-              <span class="ben-badge ben-orange-badge">📰 KÊNH TIN TỨC</span>
-              <h3 class="ach-title" style="font-size: 1.8rem; margin-bottom: 12px;">Tin Tức Tự Động</h3>
-              <p class="ach-text" style="font-size: 0.95rem; margin-bottom: 0;">Sản xuất 10 video/ngày hoàn toàn tự động. Đạt 500K views chỉ sau 1 tuần.</p>
-            </div>
-            <div class="ben-card-stat-right">
-              <div class="ben-card-stat-val" style="color: #fb923c;">500K+</div>
-              <div class="ben-card-stat-lbl">VIEWS / TUẦN</div>
-            </div>
+          <div class="ben-card-stat-right">
+            <div class="ben-card-stat-val" style="color: #fb923c;">500K+</div>
+            <div class="ben-card-stat-lbl">VIEWS / TUẦN</div>
           </div>
         </div>
       </div>
