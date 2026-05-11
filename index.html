@@ -32,29 +32,53 @@
 
   /* ─── NAVBAR ─── */
   .navbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 6%;
-    background: rgba(8,6,32,0.85);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--border);
+    position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 999;
+    display: flex; align-items: center; justify-content: center;
+    padding: 8px 10px 8px 24px;
+    background: rgba(8,6,32,0.75);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 100px;
+    width: fit-content;
+    max-width: 95%;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
   }
+  .nav-container { display: flex; align-items: center; gap: 40px; }
   .navbar .logo {
-    font-size: 1.4rem; font-weight: 900; letter-spacing: -0.5px;
-    background: linear-gradient(90deg, #fff 30%, var(--primary));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    display: flex; align-items: center;
+    font-size: 1rem; font-weight: 900; letter-spacing: 0.5px;
+    color: #fff; text-transform: uppercase;
   }
-  .navbar .logo span { color: var(--primary); }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: .9rem; font-weight: 500; transition: color .2s; }
+  .logo-icon {
+    width: 28px; height: 28px; background: linear-gradient(135deg, #00f2ff, #222fd6);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    margin-right: 10px; font-size: 0.8rem; color: #fff; font-weight: 900;
+    box-shadow: 0 0 15px rgba(0,242,255,0.3);
+  }
+  .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: .85rem; font-weight: 500; transition: all .3s; white-space: nowrap; }
   .nav-links a:hover { color: #fff; }
-  .nav-cta {
-    background: var(--primary); color: #fff; border: none;
-    padding: 10px 22px; border-radius: 8px; font-weight: 700;
-    font-family: inherit; font-size: .9rem; cursor: pointer;
-    transition: transform .2s, box-shadow .2s;
+  .nav-links .dot { width: 6px; height: 6px; background: #00f2ff; border-radius: 50%; display: inline-block; margin-left: 4px; box-shadow: 0 0 8px #00f2ff; }
+  
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .btn-consult {
+    color: #fff; text-decoration: none; font-size: .85rem; font-weight: 700;
+    padding: 10px 20px; border-radius: 100px; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1); transition: all .3s;
   }
-  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,47,214,.5); }
+  .btn-consult:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.3); }
+  .btn-buy {
+    color: #000; text-decoration: none; font-size: .85rem; font-weight: 800;
+    padding: 10px 24px; border-radius: 100px;
+    background: linear-gradient(90deg, #00f2ff, #00d4ff);
+    transition: all .3s; box-shadow: 0 4px 15px rgba(0,242,255,0.3);
+  }
+  .btn-buy:hover { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0,242,255,0.5); }
+
+  @media (max-width: 1024px) {
+    .nav-links, .btn-consult { display: none; }
+    .navbar { padding: 8px 10px 8px 20px; }
+  }
 
   /* ─── FOMO POP ─── */
   .fomo-pop {
@@ -691,14 +715,25 @@
 
 <!-- NAVBAR -->
 <nav class="navbar">
-  <div class="logo">GO<span>VIDEO</span> AI</div>
-  <ul class="nav-links">
-    <li><a href="#features">Tính Năng</a></li>
-    <li><a href="#showcase">Demo</a></li>
-    <li><a href="#pricing">Bảng Giá</a></li>
-    <li><a href="#faq">FAQ</a></li>
-  </ul>
-  <button class="nav-cta" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Đăng Ký Ngay 🚀</button>
+  <div class="nav-container">
+    <div class="logo">
+      <div class="logo-icon">A</div>
+      AIVIDEOTOOL.VN
+    </div>
+    <ul class="nav-links">
+      <li><a href="#features">Lợi ích</a></li>
+      <li><a href="#showcase">Demo</a></li>
+      <li><a href="#achievements">Thành tích</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+      <li><a href="#gifts">Quà tặng</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#affiliate">Affiliate <span class="dot"></span></a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="https://zalo.me" class="btn-consult" target="_blank">Tư vấn</a>
+      <a href="#pricing" class="btn-buy">Mua ngay</a>
+    </div>
+  </div>
 </nav>
 
 <!-- FOMO POP -->
@@ -1296,7 +1331,7 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo">GO MEDIA VIETNAM</div>
+        <div class="footer-logo">AIVIDEOTOOL.VN</div>
         <p>Đơn vị tiên phong trong lĩnh vực AI Video Marketing tại Việt Nam. Sứ mệnh: Giúp mọi người tạo nội dung chuyên nghiệp mà không cần kỹ thuật.</p>
         <div class="footer-socials">
           <div class="social-btn">f</div>
