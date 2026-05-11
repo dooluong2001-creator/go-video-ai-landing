@@ -1752,7 +1752,76 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+    /* ─── ACHIEVEMENTS ─── */
+  .achievements { background: #000; padding: 100px 6%; position: relative; overflow: hidden; }
+  .ach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 60px;
+  }
+  .ach-left {
+    background: linear-gradient(135deg, rgba(34,47,214,0.1), rgba(0,242,255,0.05));
+    border: 1px solid rgba(0,242,255,0.2);
+    border-radius: 24px; padding: 40px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    position: relative; overflow: hidden;
+    min-height: 400px;
+  }
+  .ach-right { display: flex; flex-direction: column; gap: 24px; }
+  .ach-card-small {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px; padding: 32px;
+    display: flex; align-items: center; gap: 20px;
+    height: calc(50% - 12px);
+  }
+  .ach-card-medium {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 24px; padding: 32px;
+    height: calc(50% - 12px);
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .ach-badge {
+    display: inline-block; padding: 6px 14px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 800; letter-spacing: 1px;
+    margin-bottom: 20px; text-transform: uppercase;
+  }
+  .ach-title { font-size: 2.2rem; font-weight: 900; margin-bottom: 16px; line-height: 1.1; color: #fff; }
+  .ach-text { color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 30px; }
+  .ach-stat-main { font-size: 3.5rem; font-weight: 900; color: #00f2ff; line-height: 1; text-shadow: 0 0 20px rgba(0,242,255,0.3); }
+  .ach-stat-label { font-size: 0.85rem; color: #00f2ff; font-weight: 700; margin-top: 10px; letter-spacing: 1px; }
+  
+  .ach-icon-circle {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(255,214,0,0.1); border: 1px solid rgba(255,214,0,0.3);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; color: #ffd600; flex-shrink: 0;
+  }
+  
+  .play-icon-large {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    position: absolute; bottom: 40px; right: 40px;
+    font-size: 1.2rem; cursor: pointer; transition: all 0.3s;
+  }
+  .play-icon-large:hover { background: #fff; color: #000; transform: scale(1.1); box-shadow: 0 0 30px rgba(255,255,255,0.3); }
+
+  .highlight-blue { color: #00f2ff; text-shadow: 0 0 15px rgba(0,242,255,0.4); }
+  
+  @media (max-width: 900px) {
+    .ach-grid { grid-template-columns: 1fr; }
+    .ach-left, .ach-card-small, .ach-card-medium { height: auto; min-height: unset; }
+    .ach-stat-main { font-size: 2.8rem; }
+  }
+
+  @media (max-width: 580px) {
+    .achievements .section-title { font-size: 2.5rem !important; }
+  }
+
+</style>
 </head>
 
 <body>
@@ -2072,6 +2141,55 @@
             <li>Không lo vi phạm bản quyền</li>
             <li>Upload stock riêng của bạn</li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section class="achievements" id="achievements">
+    <div class="section-inner">
+      <div style="text-align: center;">
+        <span class="ach-badge" style="background: rgba(0,242,255,0.1); border: 1px solid rgba(0,242,255,0.3); color: #00f2ff;">MINH CHỨNG THỰC TẾ</span>
+        <h2 class="section-title" style="margin-top: 10px; font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 12px;">THÀNH TÍCH <span class="highlight-blue">ÁP ĐẢO</span></h2>
+        <p class="section-sub" style="margin: 0 auto; max-width: 600px;">Không lý thuyết suông. Đây là những con số biết nói từ hệ thống AI Automation Content của cộng đồng.</p>
+      </div>
+
+      <div class="ach-grid">
+        <div class="ach-left reveal">
+          <div>
+            <span class="ach-badge" style="background: rgba(0,242,255,0.1); color: #00f2ff; border: 1px solid rgba(0,242,255,0.3);">★ FLAGSHIP CASE</span>
+            <h3 class="ach-title">Kênh Shorts Ngách<br>Sự Thật Thú Vị</h3>
+            <p class="ach-text">Từ con số 0 đạt nút bạc YouTube chỉ trong 2 tháng nhờ tự động hóa 100% quy trình sản xuất.</p>
+          </div>
+          <div>
+            <div class="ach-stat-main">2.4M+</div>
+            <div class="ach-stat-label">LƯỢT XEM / VIDEO</div>
+          </div>
+          <div class="play-icon-large">▶</div>
+        </div>
+
+        <div class="ach-right">
+          <div class="ach-card-small reveal">
+            <div class="ach-icon-circle">⚡</div>
+            <div>
+              <div class="ach-stat-main" style="font-size: 2.2rem; color: #fff;">100K+</div>
+              <div class="ach-stat-label" style="color: var(--gray);">VIDEO ĐÃ RENDER TỰ ĐỘNG</div>
+            </div>
+          </div>
+          <div class="ach-card-medium reveal">
+            <span class="ach-badge" style="background: rgba(34,47,214,0.2); color: #7b8fff; border: 1px solid rgba(34,47,214,0.4);">TIKTOK AFFILIATE</span>
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 20px;">
+              <div>
+                <h3 class="ach-title" style="font-size: 1.6rem; margin-bottom: 8px;">Ngách Đồ Công Nghệ</h3>
+                <p class="ach-text" style="margin-bottom: 0;">Tự động review sản phẩm, chèn link affiliate.<br>Doanh thu x3 sau 1 tháng.</p>
+              </div>
+              <div style="text-align: right; flex-shrink: 0;">
+                <div class="ach-stat-main" style="font-size: 2.2rem;">1.8M+</div>
+                <div class="ach-stat-label">VIEWS</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
