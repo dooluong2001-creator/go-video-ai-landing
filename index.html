@@ -1752,35 +1752,42 @@
         grid-template-columns: 1fr;
       }
     }
-    /* ─── ACHIEVEMENTS ─── */
-  .achievements { background: #000; padding: 100px 6%; position: relative; overflow: hidden; }
-  .ach-grid {
+    /* ─── GRID ALIGNMENT ─── */
+  .ach-grid, .ben-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 60px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+    margin-top: 40px;
   }
+  
+  .ach-left { grid-column: span 7; min-height: 400px; }
+  .ach-right { grid-column: span 5; display: flex; flex-direction: column; gap: 16px; }
+
+  .ben-tall { grid-column: span 3; min-height: 500px; }
+  .ben-mid-col { grid-column: span 3; display: flex; flex-direction: column; gap: 16px; }
+  .ben-right-col { grid-column: span 6; display: flex; flex-direction: column; gap: 16px; }
+
+  /* ─── ACHIEVEMENTS ─── */
+  .achievements { background: #000; padding: 100px 6% 20px 6%; position: relative; overflow: hidden; }
   .ach-left {
-    background: linear-gradient(135deg, rgba(34,47,214,0.1), rgba(0,242,255,0.05));
-    border: 1px solid rgba(0,242,255,0.2);
-    border-radius: 24px; padding: 40px;
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 24px; padding: 48px;
     display: flex; flex-direction: column; justify-content: space-between;
     position: relative; overflow: hidden;
-    min-height: 400px;
   }
-  .ach-right { display: flex; flex-direction: column; gap: 24px; }
   .ach-card-small {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.05);
     border-radius: 24px; padding: 32px;
     display: flex; align-items: center; gap: 20px;
-    height: calc(50% - 12px);
+    height: calc(50% - 8px);
   }
   .ach-card-medium {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
+    background: #0d0d0d;
+    border: 1px solid rgba(255,255,255,0.05);
     border-radius: 24px; padding: 32px;
-    height: calc(50% - 12px);
+    height: calc(50% - 8px);
     display: flex; flex-direction: column; justify-content: space-between;
   }
   .ach-badge {
@@ -1809,92 +1816,67 @@
   }
   .play-icon-large:hover { background: #fff; color: #000; transform: scale(1.1); box-shadow: 0 0 30px rgba(255,255,255,0.3); }
 
-  .highlight-blue { color: #00f2ff; text-shadow: 0 0 15px rgba(0,242,255,0.4); }
-  
-  @media (max-width: 900px) {
-    .ach-grid { grid-template-columns: 1fr; }
-    .ach-left, .ach-card-small, .ach-card-medium { height: auto; min-height: unset; }
-    .ach-stat-main { font-size: 2.8rem; }
-  }
-
-  @media (max-width: 580px) {
-    .achievements .section-title { font-size: 2.5rem !important; }
-  }
-
     /* ─── BENEFITS GRID ─── */
-  .benefits { background: #000; padding: 40px 6% 120px 6%; }
-  .ben-grid {
-    display: grid;
-    grid-template-columns: 1fr 0.8fr 2.2fr;
-    gap: 16px;
-  }
+  .benefits { background: #000; padding: 0 6% 120px 6%; }
   .ben-card {
-    background: #0a0a0a;
+    background: #0d0d0d;
     border: 1px solid rgba(255,255,255,0.05);
     border-radius: 24px; padding: 32px;
     display: flex; flex-direction: column;
     position: relative; overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.3s;
+    height: 100%;
   }
   .ben-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255,255,255,0.15);
-    background: #0f0f0f;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border-color: rgba(255,255,255,0.1);
+    background: #111;
   }
   
   .ben-tall { 
-    grid-row: span 2; display: flex; flex-direction: column; align-items: center; 
-    text-align: center; justify-content: center; padding: 60px 24px;
-    background: linear-gradient(180deg, rgba(0,242,255,0.05) 0%, #0a0a0a 100%);
-    border: 1px solid rgba(0,242,255,0.15);
+    display: flex; flex-direction: column; align-items: center; 
+    text-align: center; justify-content: space-between; padding: 60px 24px;
   }
   
-  .ben-mid-col { display: flex; flex-direction: column; gap: 16px; }
-  .ben-right-col { display: flex; flex-direction: column; gap: 16px; }
-  
   .ben-icon-box {
-    width: 54px; height: 54px; border-radius: 50%;
+    width: 64px; height: 64px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.8rem; margin-bottom: 24px;
-    border: 1px solid rgba(255,255,255,0.1);
+    font-size: 2rem; margin-bottom: 0;
+    border: 2px solid rgba(0,242,255,0.5);
+    color: #00f2ff;
   }
   
   .ben-stat-huge { 
-    font-size: 6.5rem; font-weight: 900; 
-    color: #fff; line-height: 0.85; margin-bottom: 5px;
+    font-size: 6rem; font-weight: 900; 
+    color: #fff; line-height: 1; margin-top: auto;
   }
-  .ben-stat-sub { color: #00f2ff; font-weight: 800; font-size: 1.1rem; }
+  .ben-stat-sub { color: #00f2ff; font-weight: 800; font-size: 1rem; margin-top: 10px; }
   
-  .ben-small-stat { font-size: 3rem; font-weight: 900; line-height: 1; }
+  .ben-small-stat { font-size: 3.5rem; font-weight: 900; line-height: 1; }
   .ben-green { color: #00ff88; }
   .ben-pink { color: #ff0077; }
-  .ben-label { font-size: 0.7rem; font-weight: 800; color: #666; letter-spacing: 1.5px; margin-top: 8px; text-transform: uppercase; }
+  .ben-label { font-size: 0.75rem; font-weight: 700; color: #888; letter-spacing: 1px; margin-top: 10px; }
   
-  .ben-wide-card { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 32px 40px; min-height: 180px; }
-  .ben-badge { padding: 6px 12px; border-radius: 100px; font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; display: inline-block; }
+  .ben-wide-card { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 40px; height: calc(50% - 8px); }
+  .ben-badge { padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 16px; display: inline-block; }
   
-  .ben-purple-badge { background: rgba(160,32,240,0.1); color: #c084fc; border: 1px solid rgba(160,32,240,0.2); }
-  .ben-orange-badge { background: rgba(255,165,0,0.08); color: #fb923c; border: 1px solid rgba(255,165,0,0.15); }
+  .ben-purple-badge { background: rgba(160,32,240,0.1); color: #c084fc; }
+  .ben-orange-badge { background: rgba(255,165,0,0.1); color: #fb923c; }
   
-  .ben-card-stat-right { text-align: right; flex-shrink: 0; }
-  .ben-card-stat-val { font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 4px; }
-  .ben-card-stat-lbl { font-size: 0.75rem; font-weight: 800; color: #00f2ff; letter-spacing: 1px; }
+  .ben-card-stat-right { text-align: right; }
+  .ben-card-stat-val { font-size: 4rem; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+  .ben-card-stat-lbl { font-size: 0.8rem; font-weight: 700; color: #888; }
 
-  @media (max-width: 1200px) {
-    .ben-grid { grid-template-columns: 1fr 1fr; }
-    .ben-tall { grid-column: span 2; grid-row: auto; min-height: 350px; }
+  @media (max-width: 1100px) {
+    .ach-grid, .ben-grid { grid-template-columns: 1fr; }
+    .ach-left, .ach-right, .ben-tall, .ben-mid-col, .ben-right-col { grid-column: span 1; }
     .ben-wide-card { flex-direction: row; }
   }
-  @media (max-width: 850px) {
-    .ben-wide-card { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 40px 20px; }
-    .ben-card-stat-right { text-align: center; }
+  @media (max-width: 768px) {
+    .ben-wide-card { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .ben-card-stat-right { text-align: left; }
   }
-  @media (max-width: 600px) {
-    .ben-grid { grid-template-columns: 1fr; }
-    .ben-tall { grid-column: auto; }
-    .ben-stat-huge { font-size: 5rem; }
-  }
+
+</style>
 
 </style>
 
@@ -2278,10 +2260,12 @@
       <div class="ben-grid">
         <!-- Tall Card -->
         <div class="ben-card ben-tall reveal">
-          <div class="ben-icon-box" style="color: #00f2ff; background: rgba(0,242,255,0.1);">🕒</div>
-          <h3 class="ach-title" style="font-size: 1.8rem;">Tốc Độ Bàn Thờ</h3>
-          <p class="ach-text" style="max-width: 250px;">Thay vì mất 3-4 tiếng edit thủ công, AI hoàn thiện video Animation HTML chỉ trong:</p>
-          <div style="margin-top: 20px;">
+          <div class="ben-icon-box">🕒</div>
+          <div style="margin: 30px 0;">
+            <h3 class="ach-title" style="font-size: 1.8rem; margin-bottom: 12px;">Tốc Độ Bàn Thờ</h3>
+            <p class="ach-text" style="font-size: 0.9rem; margin-bottom: 0;">Thay vì mất 3-4 tiếng edit thủ công, AI hoàn thiện video Animation HTML chỉ trong:</p>
+          </div>
+          <div style="text-align: center;">
             <div class="ben-stat-huge">10'</div>
             <div class="ben-stat-sub">/vid</div>
           </div>
@@ -2290,12 +2274,12 @@
         <!-- Middle Column -->
         <div class="ben-mid-col">
           <div class="ben-card reveal" style="text-align: center; justify-content: center; align-items: center;">
-            <div class="ben-icon-box" style="color: #00ff88; margin-bottom: 5px;">📈</div>
+            <div style="color: #00ff88; font-size: 2.2rem; margin-bottom: 15px;">📈</div>
             <div class="ben-small-stat ben-green">-50%</div>
             <div class="ben-label">CHI PHÍ API</div>
           </div>
           <div class="ben-card reveal" style="text-align: center; justify-content: center; align-items: center;">
-            <div class="ben-icon-box" style="color: #ff0077; margin-bottom: 5px;">📚</div>
+            <div style="color: #ff0077; font-size: 2.2rem; margin-bottom: 15px;">📚</div>
             <div class="ben-small-stat ben-pink">3 in 1</div>
             <div class="ben-label">ĐA NỀN TẢNG</div>
           </div>
@@ -2304,10 +2288,10 @@
         <!-- Right Column -->
         <div class="ben-right-col">
           <div class="ben-card ben-wide-card reveal">
-            <div style="max-width: 320px;">
+            <div style="max-width: 350px;">
               <span class="ben-badge ben-purple-badge">REELS / SHORTS</span>
-              <h3 class="ach-title" style="font-size: 1.6rem; margin-bottom: 8px;">Xây Thương Hiệu Cá Nhân</h3>
-              <p class="ach-text" style="margin-bottom: 0;">Phủ sóng đa nền tảng với định dạng dọc. Tự động hóa 100% khâu hậu kỳ.</p>
+              <h3 class="ach-title" style="font-size: 1.8rem; margin-bottom: 12px;">Xây Thương Hiệu Cá Nhân</h3>
+              <p class="ach-text" style="font-size: 0.95rem; margin-bottom: 0;">Phủ sóng đa nền tảng với định dạng dọc. Tự động hóa 100% khâu hậu kỳ.</p>
             </div>
             <div class="ben-card-stat-right">
               <div class="ben-card-stat-val" style="color: #c084fc;">900K+</div>
@@ -2315,10 +2299,10 @@
             </div>
           </div>
           <div class="ben-card ben-wide-card reveal">
-            <div style="max-width: 320px;">
+            <div style="max-width: 350px;">
               <span class="ben-badge ben-orange-badge">📰 KÊNH TIN TỨC</span>
-              <h3 class="ach-title" style="font-size: 1.6rem; margin-bottom: 8px;">Tin Tức Tự Động</h3>
-              <p class="ach-text" style="margin-bottom: 0;">Sản xuất 10 video/ngày hoàn toàn tự động. Đạt 500K views chỉ sau 1 tuần.</p>
+              <h3 class="ach-title" style="font-size: 1.8rem; margin-bottom: 12px;">Tin Tức Tự Động</h3>
+              <p class="ach-text" style="font-size: 0.95rem; margin-bottom: 0;">Sản xuất 10 video/ngày hoàn toàn tự động. Đạt 500K views chỉ sau 1 tuần.</p>
             </div>
             <div class="ben-card-stat-right">
               <div class="ben-card-stat-val" style="color: #fb923c;">500K+</div>
