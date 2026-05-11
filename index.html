@@ -478,6 +478,27 @@
   .vid-card.v5{background:url('meme_trend_thumb_1778486756441.png') center/cover no-repeat;}
   .vid-card.v6{background:url('english_course_thumb_1778486772991.png') center/cover no-repeat;}
 
+  /* Horizontal Cards */
+  .horizontal-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  @media (max-width: 768px) {
+    .horizontal-gallery { grid-template-columns: 1fr; }
+  }
+
+  .vid-card.horizontal {
+    aspect-ratio: 16/9;
+  }
+
+  .vid-card.h1{background:url('history_horizontal_thumb_v2_1778487699194.png') center/cover no-repeat;}
+  .vid-card.h2{background:url('money_kids_vn_thumb_1778487642131.png') center/cover no-repeat;}
+  .vid-card.h3{background:url('money_kids_en_thumb_1778487656440.png') center/cover no-repeat;}
+  .vid-card.h4{background:url('life_lessons_en_thumb_1778487675123.png') center/cover no-repeat;}
+
   /* Testimonials */
   .testimonials { margin-top: 70px; }
   .test-slider { display: flex; gap: 20px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none; }
@@ -1010,6 +1031,32 @@
   </div>
 
   <div class="section-inner">
+    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 70px;">
+      <div style="height: 1px; background: linear-gradient(90deg, transparent, rgba(0,242,255,0.3)); flex: 1;"></div>
+      <div style="display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.1rem; color: #00f2ff; letter-spacing: 1px; text-transform: uppercase;">
+        🖥️ KHUNG HÌNH NGANG <span style="color:rgba(0,242,255,0.5); font-weight: 500;">(16:9)</span>
+      </div>
+      <div style="height: 1px; background: linear-gradient(90deg, rgba(0,242,255,0.3), transparent); flex: 1;"></div>
+    </div>
+
+    <div class="horizontal-gallery">
+      <div class="vid-item">
+        <div class="vid-card horizontal h1"><div class="vid-play">▶</div></div>
+        <div class="vid-title-outer">Demo AI Video Tool Chủ đề lịch sử video dài</div>
+      </div>
+      <div class="vid-item">
+        <div class="vid-card horizontal h2"><div class="vid-play">▶</div></div>
+        <div class="vid-title-outer">Demo Video Giảng Dạy tài chính cho trẻ em tiếng việt</div>
+      </div>
+      <div class="vid-item">
+        <div class="vid-card horizontal h3"><div class="vid-play">▶</div></div>
+        <div class="vid-title-outer">Demo Video Giảng Dạy tài chính cho trẻ em Tiếng anh - Tạo bởi AI VIDEO TOOL</div>
+      </div>
+      <div class="vid-item">
+        <div class="vid-card horizontal h4"><div class="vid-play">▶</div></div>
+        <div class="vid-title-outer">Demo Video bài học cuộc sống tiếng Anh</div>
+      </div>
+    </div>
 
     <div class="testimonials">
       <div class="section-label reveal" style="margin-bottom:24px">KHÁCH HÀNG NÓI GÌ?</div>
