@@ -482,8 +482,12 @@
   .horizontal-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 40px;
     margin-top: 40px;
+  }
+
+  .horizontal-gallery .vid-item {
+    width: 100%;
   }
 
   @media (max-width: 768px) {
@@ -1056,6 +1060,29 @@
         <div class="vid-card horizontal h4"><div class="vid-play">▶</div></div>
         <div class="vid-title-outer">Demo Video bài học cuộc sống tiếng Anh</div>
       </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div style="text-align: center; margin: 60px 0 40px;">
+      <a href="#pricing" style="
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 18px 40px;
+        background: linear-gradient(135deg, #00f2ff, #00c2ff);
+        color: #000;
+        font-weight: 900;
+        font-size: 1.15rem;
+        text-decoration: none;
+        border-radius: 18px;
+        box-shadow: 0 15px 35px rgba(0, 242, 255, 0.25), 0 0 20px rgba(0, 242, 255, 0.15);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      " onmouseover="this.style.transform='scale(1.05) translateY(-5px)'; this.style.boxShadow='0 20px 45px rgba(0, 242, 255, 0.35), 0 0 25px rgba(0, 242, 255, 0.25)';" onmouseout="this.style.transform='scale(1) translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0, 242, 255, 0.25), 0 0 20px rgba(0, 242, 255, 0.15)';">
+        TÔI MUỐN SỞ HỮU NGAY
+        <span style="font-size: 1.4rem;">→</span>
+      </a>
     </div>
 
     <div class="testimonials">
