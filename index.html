@@ -1825,7 +1825,7 @@
   .benefits { background: #000; padding: 40px 6% 120px 6%; }
   .ben-grid {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr 2fr;
+    grid-template-columns: 1fr 0.8fr 2.2fr;
     gap: 16px;
   }
   .ben-card {
@@ -1845,62 +1845,55 @@
   
   .ben-tall { 
     grid-row: span 2; display: flex; flex-direction: column; align-items: center; 
-    text-align: center; justify-content: center; padding: 60px 30px;
+    text-align: center; justify-content: center; padding: 60px 24px;
     background: linear-gradient(180deg, rgba(0,242,255,0.05) 0%, #0a0a0a 100%);
     border: 1px solid rgba(0,242,255,0.15);
   }
-  .ben-tall:hover { border-color: rgba(0,242,255,0.4); box-shadow: 0 0 30px rgba(0,242,255,0.1); }
   
   .ben-mid-col { display: flex; flex-direction: column; gap: 16px; }
   .ben-right-col { display: flex; flex-direction: column; gap: 16px; }
   
   .ben-icon-box {
-    width: 48px; height: 48px; border-radius: 14px;
+    width: 54px; height: 54px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.5rem; margin-bottom: 20px;
-    background: rgba(255,255,255,0.05);
+    font-size: 1.8rem; margin-bottom: 24px;
+    border: 1px solid rgba(255,255,255,0.1);
   }
   
   .ben-stat-huge { 
-    font-size: 7rem; font-weight: 900; 
-    background: linear-gradient(180deg, #fff 40%, #555 100%); 
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
-    line-height: 0.85; margin-bottom: 5px;
-    filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+    font-size: 6.5rem; font-weight: 900; 
+    color: #fff; line-height: 0.85; margin-bottom: 5px;
   }
-  .ben-stat-sub { color: #00f2ff; font-weight: 800; font-size: 1.3rem; display: flex; align-items: baseline; gap: 4px; }
+  .ben-stat-sub { color: #00f2ff; font-weight: 800; font-size: 1.1rem; }
   
-  .ben-small-stat { font-size: 3.2rem; font-weight: 900; line-height: 1; letter-spacing: -1px; }
-  .ben-green { color: #00ff88; text-shadow: 0 0 15px rgba(0,255,136,0.3); }
-  .ben-pink { color: #ff0077; text-shadow: 0 0 15px rgba(255,0,119,0.3); }
-  .ben-label { font-size: 0.75rem; font-weight: 800; color: #666; letter-spacing: 1.5px; margin-top: 8px; text-transform: uppercase; }
+  .ben-small-stat { font-size: 3rem; font-weight: 900; line-height: 1; }
+  .ben-green { color: #00ff88; }
+  .ben-pink { color: #ff0077; }
+  .ben-label { font-size: 0.7rem; font-weight: 800; color: #666; letter-spacing: 1.5px; margin-top: 8px; text-transform: uppercase; }
   
-  .ben-wide-card { display: flex; justify-content: space-between; align-items: center; padding: 40px; min-height: 180px; }
-  .ben-badge { padding: 6px 14px; border-radius: 100px; font-size: 0.7rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 16px; display: inline-block; }
+  .ben-wide-card { display: flex; flex-direction: row; justify-content: space-between; align-items: center; padding: 32px 40px; min-height: 180px; }
+  .ben-badge { padding: 6px 12px; border-radius: 100px; font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; margin-bottom: 12px; display: inline-block; }
   
-  .ben-purple-badge { background: rgba(160,32,240,0.15); color: #c084fc; border: 1px solid rgba(160,32,240,0.3); }
-  .ben-orange-badge { background: rgba(255,165,0,0.1); color: #fb923c; border: 1px solid rgba(255,165,0,0.2); }
+  .ben-purple-badge { background: rgba(160,32,240,0.1); color: #c084fc; border: 1px solid rgba(160,32,240,0.2); }
+  .ben-orange-badge { background: rgba(255,165,0,0.08); color: #fb923c; border: 1px solid rgba(255,165,0,0.15); }
   
-  /* Glowing line animation */
-  .ben-card::after {
-    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: 0.5s;
-  }
-  .ben-card:hover::after { left: 100%; }
+  .ben-card-stat-right { text-align: right; flex-shrink: 0; }
+  .ben-card-stat-val { font-size: 3.5rem; font-weight: 900; line-height: 1; margin-bottom: 4px; }
+  .ben-card-stat-lbl { font-size: 0.75rem; font-weight: 800; color: #00f2ff; letter-spacing: 1px; }
 
   @media (max-width: 1200px) {
     .ben-grid { grid-template-columns: 1fr 1fr; }
-    .ben-tall { grid-column: span 2; grid-row: auto; min-height: 380px; }
+    .ben-tall { grid-column: span 2; grid-row: auto; min-height: 350px; }
+    .ben-wide-card { flex-direction: row; }
   }
   @media (max-width: 850px) {
-    .ben-wide-card { flex-direction: column; align-items: center; text-align: center; gap: 24px; }
-    .ben-wide-card .ach-stat-main { font-size: 3rem !important; }
+    .ben-wide-card { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 40px 20px; }
+    .ben-card-stat-right { text-align: center; }
   }
   @media (max-width: 600px) {
     .ben-grid { grid-template-columns: 1fr; }
     .ben-tall { grid-column: auto; }
-    .ben-stat-huge { font-size: 5.5rem; }
+    .ben-stat-huge { font-size: 5rem; }
   }
 
 </style>
@@ -2313,23 +2306,23 @@
           <div class="ben-card ben-wide-card reveal">
             <div style="max-width: 320px;">
               <span class="ben-badge ben-purple-badge">REELS / SHORTS</span>
-              <h3 class="ach-title" style="font-size: 1.7rem; margin-bottom: 8px;">Xây Thương Hiệu Cá Nhân</h3>
+              <h3 class="ach-title" style="font-size: 1.6rem; margin-bottom: 8px;">Xây Thương Hiệu Cá Nhân</h3>
               <p class="ach-text" style="margin-bottom: 0;">Phủ sóng đa nền tảng với định dạng dọc. Tự động hóa 100% khâu hậu kỳ.</p>
             </div>
-            <div style="text-align: right;">
-              <div class="ach-stat-main" style="font-size: 2.8rem; color: #c084fc;">900K+</div>
-              <div class="ach-stat-label" style="color: var(--gray);">VIEWS</div>
+            <div class="ben-card-stat-right">
+              <div class="ben-card-stat-val" style="color: #c084fc;">900K+</div>
+              <div class="ben-card-stat-lbl">VIEWS</div>
             </div>
           </div>
           <div class="ben-card ben-wide-card reveal">
             <div style="max-width: 320px;">
               <span class="ben-badge ben-orange-badge">📰 KÊNH TIN TỨC</span>
-              <h3 class="ach-title" style="font-size: 1.7rem; margin-bottom: 8px;">Tin Tức Tự Động</h3>
+              <h3 class="ach-title" style="font-size: 1.6rem; margin-bottom: 8px;">Tin Tức Tự Động</h3>
               <p class="ach-text" style="margin-bottom: 0;">Sản xuất 10 video/ngày hoàn toàn tự động. Đạt 500K views chỉ sau 1 tuần.</p>
             </div>
-            <div style="text-align: right;">
-              <div class="ach-stat-main" style="font-size: 2.8rem; color: #fb923c;">500K+</div>
-              <div class="ach-stat-label" style="color: var(--gray);">VIEWS / TUẦN</div>
+            <div class="ben-card-stat-right">
+              <div class="ben-card-stat-val" style="color: #fb923c;">500K+</div>
+              <div class="ben-card-stat-lbl">VIEWS / TUẦN</div>
             </div>
           </div>
         </div>
